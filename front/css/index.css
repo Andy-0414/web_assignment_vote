@@ -93,6 +93,9 @@
 
     border-radius: 10px 0 0 10px;
 }
+#loginForm_submit:hover{
+    background-color: #8cae38;
+}
 #loginForm label{
     color: grey;
 }
