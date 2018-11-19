@@ -42,6 +42,7 @@
     background-color: #8cae38;
 }
 #joinVote{
+    display: inline-block;
     transition: 0.5s;
     background-color: #f9ffcf;
 }
@@ -49,6 +50,7 @@
     background-color: #e0e5ba;
 }
 #createVote{
+    display: inline-block;
     transition: 0.5s;
     background-color: #f0ffd0;
 }
