@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./MDL/material.min.css">
+    <script src="./MDL/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="css/thema.css">
+    <link rel="stylesheet" href="css/newVote.css">
+
+    <title>Vote</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav id="topInfo">
+            <h1>투표 작성</h1>
+        </nav>
+        <section id="content">
+            <article>
+                <h2>투표제목</h2>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text">
+                    <label class="mdl-textfield__label" for="sample1">제목을 입력하세요</label>
+                </div>
+            </article>
+            <article>
+                <h2>투표항목</h2>
+                <table class="mdl-data-table mdl-js-data-table voteList">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">내용</th>
+                            <th class="mdl-data-table__cell--non-numeric voteList_image">이미지</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <div class="mdl-textfield mdl-js-textfield voteList_text">
+                                    <input class="mdl-textfield__input" type="text" id="sample1">
+                                    <label class="mdl-textfield__label" for="sample1">내용을 입력하세요</label>
+                                </div>
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                                    <i class="addImage material-icons">image</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="center pt-2">
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                        <i class="material-icons">add</i>
+                    </button>
+                </div>
+            </article>
+        </section>
+    </div>
+</body>
+
+</html>

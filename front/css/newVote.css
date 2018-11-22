@@ -1,0 +1,29 @@
+#content>article{
+    width: 100%;
+    padding: 20px;
+    margin: 1% 0;
+    
+    height: fit-content;
+
+    box-shadow: 0px 0px 10px 0.1px #EEEEEE;
+    box-sizing: border-box;
+}
+#content>article>h2{
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+}
+.voteList{
+    width: 90%;
+
+    margin: 0 auto;
+}
+.voteList_text{
+    width: 100%;
+}
+.voteList_image{
+    width: 5%;
+}
+.addImage{
+    color: white;
+}
