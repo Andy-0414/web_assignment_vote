@@ -21,9 +21,12 @@
 .voteList_text{
     width: 100%;
 }
-.voteList_image{
-    width: 5%;
+.voteList_sm{
+    width: 10px;
 }
 .addImage{
     color: white;
+}
+.deleteList{
+    color: #FFCDD2;
 }

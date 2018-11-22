@@ -23,6 +23,19 @@ body{
     width: 100%;
     text-align: center;
 }
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.align-center{
+    display: flex;
+    align-items: center;
+}
+.justify-center{
+    display: flex;
+    justify-content: center;
+}
 
 .display-1{
     font-size: 20px;
