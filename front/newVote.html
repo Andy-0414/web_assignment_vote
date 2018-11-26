@@ -23,8 +23,8 @@
             <article>
                 <h2>투표제목</h2>
                 <div class="inputLeftmargin mdl-textfield mdl-js-textfield">
-                    <input class="mdl-textfield__input" type="text">
-                    <label class="mdl-textfield__label" for="sample1">제목을 입력하세요</label>
+                    <input class="mdl-textfield__input" type="text" name="title">
+                    <label class="mdl-textfield__label">제목을 입력하세요</label>
                 </div>
             </article>
             <article>
@@ -37,12 +37,12 @@
                             <th class="mdl-data-table__cell--non-numeric voteList_sm">삭제</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="contentList">
                         <tr>
                             <td class="mdl-data-table__cell--non-numeric">
                                 <div class="mdl-textfield mdl-js-textfield voteList_text">
-                                    <input class="mdl-textfield__input" type="text" id="sample1">
-                                    <label class="mdl-textfield__label" for="sample1">내용을 입력하세요</label>
+                                    <input class="mdl-textfield__input" type="text" name="content">
+                                    <label class="mdl-textfield__label">내용을 입력하세요</label>
                                 </div>
                             </td>
                             <td class="mdl-data-table__cell--non-numeric">
@@ -59,13 +59,14 @@
                     </tbody>
                 </table>
                 <div class="flex-center voteList">
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" id="addList">
                         <i class="material-icons">add</i>항목추가
                     </button>
                 </div>
             </article>
         </section>
     </div>
+    <script src="./js/newVote.js"></script>
 </body>
 
 </html>
