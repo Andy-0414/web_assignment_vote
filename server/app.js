@@ -45,6 +45,11 @@ app.use((req, res, next) => { // 로그인 유무 확인 미들웨어
     next()
 })
 
+app.post('/',(req,res)=>{
+    console.log(req.body)
+    res.send(req.body)
+})
+
 const authRouter = require('./routers/auth'); // 라우터 로딩
 
 app.use('/auth', authRouter); // 라우터 연결

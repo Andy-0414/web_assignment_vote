@@ -2,7 +2,8 @@ body{
     margin: 0px;
 }
 #app{
-
+    height: 100vh;
+    overflow: hidden;
 }
 .fill-width{
     position: relative;
@@ -111,15 +112,20 @@ body{
 }
 
 #topInfo{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 
     height: 15vh;
-    
-    background-color: #a1dd31;
 
     z-index: 100;
+}
+.colorLime1{
+    background-color: #a1dd31;
+}
+.colorLime2{
+    background-color: rgb(189, 211, 63);
 }
 #topInfo>h1{
     display: flex;
@@ -146,9 +152,9 @@ body{
 
     height: 85vh;
     width: 60vw;
-
+    
     overflow-y: scroll;
-    overflow: visible;
+    overflow-x: hidden;
 
     z-index: 0;
 

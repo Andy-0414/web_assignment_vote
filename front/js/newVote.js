@@ -19,7 +19,7 @@ function createVoteList(){
     var input_text = document.createElement('input')
     input_text.classList = "mdl-textfield__input"
     input_text.type = "text"
-    input_text.name = "content"
+    input_text.name = "list"
     var input_label = document.createElement('label')
     input_label.classList = "mdl-textfield__label"
     input_label.innerHTML = "내용을 입력하세요"
@@ -27,6 +27,7 @@ function createVoteList(){
     input.appendChild(input_label)
     
     var a_button = document.createElement('button')
+    a_button.type = "button"
     a_button.classList = "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored"
     var icon = document.createElement('i')
     icon.innerHTML = "image"
@@ -34,6 +35,7 @@ function createVoteList(){
     a_button.appendChild(icon)
 
     var c_button = document.createElement('button')
+    c_button.type = "button"
     c_button.classList = "mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored"
     var icon = document.createElement('i')
     icon.innerHTML = "clear"
