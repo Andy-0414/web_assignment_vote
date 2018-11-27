@@ -43,9 +43,11 @@ function createVoteList(){
         contentList.removeChild(tr)
     })
 
-    componentHandler.upgradeElement(loginForm);
+    componentHandler.upgradeElement(input);
     td1.appendChild(input)
+    componentHandler.upgradeElement(a_button);
     td2.appendChild(a_button)
+    componentHandler.upgradeElement(c_button);
     td3.appendChild(c_button)
     
     tr.appendChild(td1)

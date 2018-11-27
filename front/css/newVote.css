@@ -1,6 +1,6 @@
 #content>article{
     width: 100%;
-    padding: 20px;
+    padding: 30px;
     margin: 1% 0;
     
     height: fit-content;
@@ -14,7 +14,7 @@
     font-size: 2em;
 }
 .voteList{
-    width: 90%;
+    width: 95%;
 
     margin: 0 auto;
 }
@@ -22,14 +22,16 @@
     width: 100%;
 }
 .voteList_sm{
-    width: 10px;
+    width: 1px;
 }
 .addImage{
     color: white;
 }
 .deleteList{
-    color: #FFCDD2;
+    color: #FF8888;
+    width: auto;
 }
 .inputLeftmargin{
-    margin-left: 2%;
+    margin: 1% 0;
+    margin-left: 3%;
 }
