@@ -3,7 +3,7 @@ body{
 }
 #app{
     height: 100vh;
-    overflow: hidden;
+    overflow: scroll;
 }
 .fill-width{
     position: relative;
@@ -36,6 +36,40 @@ body{
 .justify-center{
     display: flex;
     justify-content: center;
+}
+
+.w-0{
+    width: 0;
+}
+.w-1{
+    width: 10%;
+}
+.w-2{
+    width: 20%;
+}
+.w-3{
+    width: 30%;
+}
+.w-4{
+    width: 40%;
+}
+.w-5{
+    width: 50%;
+}
+.w-6{
+    width: 60%;
+}
+.w-7{
+    width: 70%;
+}
+.w-8{
+    width: 80%;
+}
+.w-9{
+    width: 90%;
+}
+.w-10{
+    width: 100%;
 }
 
 .display-1{
@@ -127,6 +161,9 @@ body{
 .colorLime2{
     background-color: rgb(189, 211, 63);
 }
+#topInfo *{
+    color: white;
+}
 #topInfo>h1{
     display: flex;
     align-items: flex-end;
@@ -137,32 +174,105 @@ body{
     padding: 0 2%;
 
     font-size: 3.5em;
-    color: white;
 
     box-sizing: border-box;
 }
+
+#leftInfo{
+    position: fixed;
+    top: calc(15vh + 10px);
+    left: calc(20% - 100px);
+    width: 100px;
+    z-index: 1;
+}
+.activeBar{
+    position: absolute;
+    right: 0;
+    
+    transition: 0.5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 50px;
+    height: 150px;
+
+    border: 5px solid rgb(164, 153, 110);
+    border-right: none;
+    border-radius: 20px 0 0 20px;
+
+    background: white;
+
+    color: rgb(164, 153, 110);
+    font-size: 1.5em;
+    font-weight: 700;
+    
+    box-shadow: 0px 5px 0px 0.1px rgba(164, 153, 110,0.5);
+    
+    box-sizing: border-box;
+}
+.restBar{
+    position: absolute;
+    right: 0;
+    top: 140px;
+
+    transition: 0.5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50px;
+    height: 150px;
+
+    border-radius: 20px 0 0 20px;
+
+    background: rgb(186, 196, 139);
+
+    color: rgba(0, 0, 0,0);
+    font-size: 1.5em;
+    font-weight: 700;
+
+    box-sizing: border-box;
+}
+.z-index-up{
+    z-index: 2;
+}
+.activeBar:hover{
+
+}
+.restBar:hover{
+    color: rgba(255, 255, 255,1);
+    width: 60px;
+}
+.aFont{
+    margin: 3px;
+}
+
+
 #content{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 
+    background: white;
+
     padding: 30px 0;
     margin: 0 auto;
 
-    height: 85vh;
+    height: max-content;
     width: 60vw;
     
-    overflow-y: scroll;
-    overflow-x: hidden;
-
-    z-index: 0;
+    z-index: 5;
 
     box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
 }
 ::-webkit-scrollbar-track {
     background-color: none;
@@ -179,7 +289,6 @@ body{
     background-color: none;
 }
 
-
 @media (max-width: 1280px) {
     #content{
         width: 100vw;
@@ -190,4 +299,4 @@ body{
     #topInfo>h1{
         width: 100vw;
     }
-}
+} 
