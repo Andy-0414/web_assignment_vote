@@ -8,16 +8,20 @@ router.get('/:id', (req, res) => {
         data.viewCount++;
         //data.join { email:"", answer:[1,3]}
         var myJoin;
+        var isOwner = false
         if (req.isLogin) {
             myJoin = data.join.find(x => x.email == req.user.email)
+            isOwner = (req.user.email == data.owner)
         }
         var answer = [];
-        data.list.forEach((x,index)=>{
+        var all = 0;
+        data.list.forEach((x, index) => {
             answer[index] = 0;
         })
         data.join.forEach((x, index) => {
             x.answer.forEach(y => {
                 answer[y]++
+                all++;
             })
         })
         data.save(err => {
@@ -25,7 +29,9 @@ router.get('/:id', (req, res) => {
                 post: data,
                 user: req.user,
                 answer: answer,
-                isJoin: (myJoin ? myJoin.answer : [])
+                all: all,
+                isJoin: (myJoin ? myJoin.answer : []),
+                isOwner: isOwner
             })
         })
     })
@@ -39,7 +45,6 @@ router.post('/:id/answer', (req, res) => {
                     email: req.user.email,
                     answer: [...req.body.answer]
                 })
-                console.log(data.join)
                 data.save(err => {
                     res.redirect(`/post/${data.id}`)
                 })

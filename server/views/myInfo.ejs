@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./MDL/material.min.css">
+    <script src="./MDL/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="css/thema.css">
+    <link rel="stylesheet" href="css/newVote.css">
+    <link rel="stylesheet" href="css/myInfo.css">
+
+    <title>Vote</title>
+</head>
+
+<body>
+    <form action="/auth/register" method="POST" id="app">
+        <nav id="topInfo" class="colorLime3">
+            <h1>이곳이 바로 나,『 <%= user.username %> 』의 페이지</h1>
+        </nav>
+        <section id="content">
+            <article>
+                <div id="imgBox">
+                    <img id="profile" src="./assets/user.png" width="100%">
+                </div>
+                <div id="info">
+                <h3 id="username"><%= user.username %></h3>
+                <p>작성한 투표 00 | 참여한 투표 00</p>
+                </div>
+            </article>
+            <article id="voteBox">
+                <table class="voteList">
+                    <thead>
+                        <tr class="header list">
+                            <th class="w-7">작성한 투표 목록</th>
+                            <th>작성일시</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(i in myVote.reverse()){ %>
+                            <tr class="list">
+                                <td class="list_tltie"><a href=<%=`/post/${myVote[i].id}`%> ><%= myVote[i].title %> <span class="list_count"><%= myVote[i].viewCount %></span></a></td>
+                                <td class="list_date"><%= myVote[i].date %></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+
+                <table class="voteList">
+                    <thead>
+                        <tr class="header list">
+                            <th class="w-7">참여한 투표 목록</th>
+                            <th>작성일시</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(i in joinVote.reverse()){ %>
+                            <tr class="list">
+                                <td class="list_tltie"><a href=<%=`/post/${joinVote[i].id}`%> ><%= joinVote[i].title %> <span class="list_count"><%= joinVote[i].viewCount %></span></a></td>
+                                <td class="list_date"><%= joinVote[i].date %></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </form>
+</body>
+
+</html>

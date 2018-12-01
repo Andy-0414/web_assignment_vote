@@ -137,8 +137,23 @@
     font-size: 1.6em;
 }
 #myInfo{
+    position: relative;
     margin-top: 30px;
     width: 300px;
     height: 100px;
     box-shadow: 0px 0px 10px 1px grey;
+}
+#logout{
+    position: absolute;
+    font-size: 1em;
+
+    bottom: 10px;
+    right: 10px;
+
+    color: rgb(124, 144, 83);
+    background-color: rgb(200, 219, 174);
+
+    padding: 5px;
+    border-radius: 10px;
+
 }

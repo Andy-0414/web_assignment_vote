@@ -1,0 +1,55 @@
+#imgBox{
+    float: left;
+    display: flex;
+    width: 100px;
+    height:100px;
+}
+#info{
+    display: flex;
+    flex-direction: column;
+    width: calc(95% - 100px);
+    height:100%;
+
+    padding-top: 20px;
+    padding-left: 5%;
+    box-sizing: border-box;
+}
+#username{
+    padding: 0;
+    margin: 0;
+}
+#voteBox{
+    display: flex;
+}
+.voteList{
+    width: 49%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+.header{
+    height: 50px;
+
+    font-size: 1.5em;
+}
+.list{
+    height: 45px;
+
+    border-bottom: 1px solid #DDDDDD;
+
+    font-size: 1.2em;
+}
+.list_tltie{
+    padding: 0 0 0 20px;
+}
+.list_count::before{
+    content: "["
+}
+.list_count::after{
+    content: "]"
+}
+.list_count{
+    color: rgb(46, 204, 113);
+}
+.list_name,.list_date{
+    text-align: center;
+}

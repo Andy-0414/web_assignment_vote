@@ -102,6 +102,26 @@ app.get('/close', (req, res) => {
         })
     })
 })
+app.get('/myinfo', (req, res) => {
+    if(req.isLogin){
+        Post.find((err, data) => {
+            var myVote = data.filter(x=>{
+                return x.owner == req.user.email
+            })
+            var joinVote = data.filter(x => {
+                return (x.join.findIndex(y=>y.email == req.user.email) != -1)
+            })
+            res.render('myInfo', {
+                user: req.user,
+                myVote: myVote,
+                joinVote: joinVote
+            })
+        })
+    }
+    else{
+        res.redirect('/')
+    }
+})
 
 const authRouter = require('./routers/auth'); // 라우터 로딩
 

@@ -40,9 +40,9 @@
             <% } else{ %>
             <div style="text-align:center;">
                 <img id="profile" src="./assets/user.png" width="60px">
-                <div id="username"><%= user.username %></div>
+                <a style="display:block" href="/myinfo" id="username"><%= user.username %></a>
                 <div id="myInfo">
-                    <a href="/auth/logout">로그아웃</a>
+                    <a href="/auth/logout" id="logout">로그아웃</a>
                 </div>
             </div>
             <% } %>

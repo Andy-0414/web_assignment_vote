@@ -68,10 +68,11 @@ article{
     font-size: 1.2em;
 }
 .listDesc{
+    position: relative;
     padding-left: 40px;
 }
 #sendServer{
-    height: 60px;
+    height: 50px;
     color: rgb(143, 158, 112);
     background-color: rgb(240, 255, 208);
     font-size: 1.2em;
@@ -91,6 +92,16 @@ article{
 .commentHeader{
     height: none;
 }
+.prograssBar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(174, 255, 0);
+    opacity: 0.3;
+}
+
 
 @media (max-width: 1280px) {
     #leftList{

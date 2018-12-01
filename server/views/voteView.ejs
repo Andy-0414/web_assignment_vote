@@ -22,15 +22,17 @@
                 <div class="info"><%= post.date %></div>
             </div>
             <div id="rightList">
+                <% if(isOwner){ %>
                 <div id="btnList">
-                    <form method="POST" action=<%=`/post/${post.id}/close`%>>
+                    <form style="display:inline-block;" method="POST" action=<%=`/post/${post.id}/close`%>>
                     <button class="btn">마감</button>
                     </form>
-                    <form method="POST" action=<%=`/post/${post.id}/delete`%>>
+                    <form style="display:inline-block;" method="POST" action=<%=`/post/${post.id}/delete`%>>
                     <button class="btn">삭제</button>
                     </form>
                 </div>
-                <div class="info">조회 <%= post.viewCount %> | 참여 0 | 댓글 <%= post.comment.length %></div>
+                <% } %>
+                <div class="info">조회 <%= post.viewCount %> | 참여 <%= post.join.length %> | 댓글 <%= post.comment.length %></div>
             </div>
         </nav>
         <section id="content">
@@ -49,20 +51,32 @@
                         </tr>
                     </thead>
                     <tbody>
-                    
                         <% for(i in [...post.list]){ %>
                         <tr class="list">
-                            <td class="listDesc"><%= post.list[i]%> <span style="color:grey;">[<%= answer[i] %>]</span></td>
+                            <td class="listDesc">
+                            <% if(!post.isOpen){ %>
+                            <div class="prograssBar" style=<%= `width:${(answer[i]/all)*100}%` %>></div>
+                            <% } %>
+                            <%= post.list[i]%> <span style="color:grey;">[<%= answer[i] %>]</span>
+                            </td>
                             <% if(post.isOpen){ %>
                             <td class="center">
                             <% if(!post.isMulti){ %>
                                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                                    <% if(isJoin.indexOf(i) != -1) {%>
+                                    <input type="radio" class="mdl-radio__button" name="answer" value=<%=i%> checked>                                    
+                                    <% }else{ %>
                                     <input type="radio" class="mdl-radio__button" name="answer" value=<%=i%>>
+                                    <% } %>
                                 </label>
                             <% }else{ %>
                                 <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                    <% if(isJoin.indexOf(i) != -1) {%>
+                                    <input type="checkbox" class="mdl-checkbox__input" name="answer" value=<%=i%> checked>
+                                    <% }else{ %>
                                     <input type="checkbox" class="mdl-checkbox__input" name="answer" value=<%=i%>>
-                                </label>
+                                    <% } %>
+                                    </label>
                                 <% } %>
                             </td>
                             <% } %>
@@ -73,9 +87,15 @@
                         <tr class="list">
                             <td class="listDesc"></td>
                             <td class="center">
-                                <button id="sendServer" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">
-                                    투표하기
+                            <% if(isJoin.length != 0 || !user){ %>
+                                <button id="sendServer" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect" disabled>
+                                    <i class="display-1 material-icons">check</i> <%= (user ? '투표완료' : '로그인 필요') %>
                                 </button>
+                            <% }else{ %>
+                                <button id="sendServer" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">
+                                    <i class="display-1 material-icons">check</i> 투표하기
+                                </button>
+                            <% } %>
                             </td>
                         </tr>
                         <% } %>
