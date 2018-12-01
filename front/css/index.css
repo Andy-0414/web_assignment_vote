@@ -12,7 +12,33 @@
     width: 250px;
     height: 400px;
 
-    background-color: grey;
+    padding: 10px;
+    box-sizing: border-box
+}
+.voteBox_img{
+    position: relative
+    ;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+}
+.voteBox_text{
+    font-size: 1.8em;
+    line-height: 1.8em;
+
+    color: rgb(123, 144, 83);
+
+    padding: 10px 15px 15px 15px;
+    box-sizing: border-box;
+}
+.img_Text{
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+
+    font-size: 3em;
+    font-weight: 500;
+    color: rgb(123, 144, 83);
 }
 
 #logo{
