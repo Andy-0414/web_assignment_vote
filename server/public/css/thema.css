@@ -149,7 +149,31 @@ body{
 .pb-5{
     padding-bottom:50px;
 }
+#homeBtn{
+    position: fixed;
+    text-align: center;
+    left: -30px;
+    top: -30px;
+    width: 80px;
+    height: 80px;
 
+    border-radius: 0 0 50% 0;
+
+    color: rgba(0,0,0,0);
+    background-color: grey;
+    opacity: 0.5;
+
+    z-index: 200;
+
+    transition: 0.5s;
+}
+#homeBtn:hover{
+    color: white;
+    left: 0px;
+    top: 0px;
+    
+    opacity: 0.8;
+}
 #topInfo{
     position: relative;
     display: flex;
@@ -182,6 +206,7 @@ body{
     padding: 0 2%;
 
     font-size: 3.2em;
+    font-weight: 700;
 
     box-sizing: border-box;
 }

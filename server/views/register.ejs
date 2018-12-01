@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="./MDL/material.min.css">
     <script src="./MDL/material.min.js"></script>
@@ -15,6 +16,7 @@
 </head>
 
 <body>
+    <a href="/" id="homeBtn"><i class="display-4 material-icons">home</i></a>
     <form action="/auth/register" method="POST" id="app">
         <nav id="topInfo" class="colorLime3">
             <h1>회원 가입</h1>
@@ -41,7 +43,9 @@
                     <label class="mdl-textfield__label">Password</label>
                 </div>
             </article>
-            <article>
+            <article style="font-size:1.5em;">
+                <img src="./assets/register.png" width="40%"><div>※ 당신의 양심을 위해서 주작을 위한 부계정 생성을 금지합니다</div>
+            </article><article>
                 <button id="sendServer" type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent">
                     회원가입
                 </button>

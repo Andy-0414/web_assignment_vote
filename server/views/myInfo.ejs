@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="./MDL/material.min.css">
     <script src="./MDL/material.min.js"></script>
@@ -16,6 +17,7 @@
 </head>
 
 <body>
+    <a href="/" id="homeBtn"><i class="display-4 material-icons">home</i></a>
     <form action="/auth/register" method="POST" id="app">
         <nav id="topInfo" class="colorLime3">
             <h1>이곳이 바로 나,『 <%= user.username %> 』의 페이지</h1>
@@ -27,7 +29,7 @@
                 </div>
                 <div id="info">
                 <h3 id="username"><%= user.username %></h3>
-                <p>작성한 투표 00 | 참여한 투표 00</p>
+                <p>작성한 투표 <%= myVote.length %> | 참여한 투표 <%= joinVote.length %></p>
                 </div>
             </article>
             <article id="voteBox">
@@ -41,7 +43,7 @@
                     <tbody>
                         <% for(i in myVote.reverse()){ %>
                             <tr class="list">
-                                <td class="list_tltie"><a href=<%=`/post/${myVote[i].id}`%> ><%= myVote[i].title %> <span class="list_count"><%= myVote[i].viewCount %></span></a></td>
+                                <td class="list_tltie"><a href=<%=`/post/${myVote[i].id}`%> ><%= myVote[i].title %> <span class="list_count"><%= myVote[i].join.length %></span></a></td>
                                 <td class="list_date"><%= myVote[i].date %></td>
                             </tr>
                         <% } %>
@@ -58,7 +60,7 @@
                     <tbody>
                         <% for(i in joinVote.reverse()){ %>
                             <tr class="list">
-                                <td class="list_tltie"><a href=<%=`/post/${joinVote[i].id}`%> ><%= joinVote[i].title %> <span class="list_count"><%= joinVote[i].viewCount %></span></a></td>
+                                <td class="list_tltie"><a href=<%=`/post/${joinVote[i].id}`%> ><%= joinVote[i].title %> <span class="list_count"><%= joinVote[i].join.length %></span></a></td>
                                 <td class="list_date"><%= joinVote[i].date %></td>
                             </tr>
                         <% } %>

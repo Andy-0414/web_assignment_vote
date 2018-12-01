@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="./MDL/material.min.css">
     <script src="./MDL/material.min.js"></script>
@@ -15,7 +16,8 @@
 </head>
 
 <body>
-    <form method="POST" action="/post/create" id="app">
+ <a href="/" id="homeBtn"><i class="display-4 material-icons">home</i></a>
+    <form method="POST" action="/post/create" enctype="multipart/form-data" id="app">
         <nav id="topInfo" class="colorLime1">
             <h1>투표 작성</h1>
         </nav>
@@ -33,7 +35,6 @@
                     <thead>
                         <tr>
                             <th class="mdl-data-table__cell--non-numeric">내용</th>
-                            <th class="mdl-data-table__cell--non-numeric voteList_sm">이미지</th>
                             <th class="mdl-data-table__cell--non-numeric voteList_sm">삭제</th>
                         </tr>
                     </thead>
@@ -44,11 +45,6 @@
                                     <input class="mdl-textfield__input" type="text" name="list">
                                     <label class="mdl-textfield__label">내용을 입력하세요</label>
                                 </div>
-                            </td>
-                            <td class="mdl-data-table__cell--non-numeric">
-                                <button type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
-                                    <i class="addImage material-icons">image</i>
-                                </button>
                             </td>
                             <td class="mdl-data-table__cell--non-numeric">
                                 <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">
@@ -81,6 +77,10 @@
                     <textarea class="mdl-textfield__input" type="text" rows="5" name="content"></textarea>
                     <label class="mdl-textfield__label">내용</label>
                 </div>
+            </article>
+            <article>
+                <h2>이미지</h2>
+                <input type="file" name="img" accept="image/x-png,image/gif,image/jpeg">
             </article>
             <article>
                 <button id="sendServer" type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent">

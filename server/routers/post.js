@@ -1,7 +1,20 @@
 const express = require('express'); // express
 const router = express.Router(); // 라우터 모듈
-
+const path = require('path');
 const Post = require('../schema/posts')
+
+var multer = require('multer')
+const upload = multer({
+    storage: multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, 'public/img/');
+        },
+        filename: function (req, file, cb) {
+            cb(null, `${new Date().getTime()}_${file.originalname}`);
+        }
+    }),
+});
+
 
 router.get('/:id', (req, res) => {
     Post.findOne({ id: req.params.id }, (err, data) => {
@@ -83,6 +96,7 @@ router.post('/:id/close', (req, res) => {
         Post.findOne({ id: req.params.id }, (err, data) => {
             if (data.owner == req.user.email) {
                 data.isOpen = false
+                data.date = new Date().toLocaleTimeString()
                 data.save(err => {
                     res.redirect(`/post/${data.id}`)
                 })
@@ -116,12 +130,12 @@ router.post('/:id/delete', (req, res) => {
 })
 
 
-router.post('/create', function (req, res) { // 로그아웃
+router.post('/create', upload.single('img'), function (req, res) { // 로그아웃
     if (req.isLogin) {
         var data = {
             isOpen: true,
             title: req.body.title,
-            img: "",
+            img: (req.file ? '/img/' + req.file.filename : ''),
             list: req.body.list,
             isMulti: (req.body.isMulti == "on"),
             date: new Date().toLocaleDateString(),

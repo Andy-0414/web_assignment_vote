@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7" />
 
     <link rel="stylesheet" href="./MDL/material.min.css">
     <script src="./MDL/material.min.js"></script>
@@ -15,6 +16,7 @@
 </head>
 
 <body>
+    <a href="/" id="homeBtn"><i class="display-4 material-icons">home</i></a>
     <div id="app">
         <div id="loginBox">
             <img id="logo" src="./assets/logo.png" alt="">
@@ -22,6 +24,11 @@
             <button id="loginBtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent">
                 로그인
             </button>
+            <a style="color:white;" href="/register">
+                <button id="registerBtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent">
+                    회원가입
+                </button>
+            </a>
             <form action="/auth/login" method="POST" id="loginForm">
                 <button id="loginForm_submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent">
                     <i class="display-2 material-icons">lock_open</i>
@@ -40,10 +47,8 @@
             <% } else{ %>
             <div style="text-align:center;">
                 <img id="profile" src="./assets/user.png" width="60px">
-                <a style="display:block" href="/myinfo" id="username"><%= user.username %></a>
-                <div id="myInfo">
-                    <a href="/auth/logout" id="logout">로그아웃</a>
-                </div>
+                <a style="display:block" href="/myinfo" id="username"><%= user.username %></a><br>
+                <a href="/auth/logout" id="logout">로그아웃</a>
             </div>
             <% } %>
         </div>

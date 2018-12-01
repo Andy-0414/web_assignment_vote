@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="../MDL/material.min.css">
     <script src="../MDL/material.min.js"></script>
@@ -15,6 +16,7 @@
 </head>
 
 <body>
+<a href="/" id="homeBtn"><i class="display-4 material-icons">home</i></a>
     <div id="app">
         <nav id="topInfo" class="colorLime2">
             <div id="leftList">
@@ -39,6 +41,11 @@
             <article class="voteContent">
                 <%= post.content %>
             </article>
+            <% if(post.img){ %>
+            <article class="center">
+                <img src=<%= post.img %> width="50%">
+            </article>
+            <% } %>
             <article>
                 <form method="POST" action=<%=`/post/${post.id}/answer`%>>
                 <table id="voteList">
@@ -81,7 +88,6 @@
                             </td>
                             <% } %>
                         </tr>
-                        
                     <% } %>
                     <% if(post.isOpen){ %>
                         <tr class="list">

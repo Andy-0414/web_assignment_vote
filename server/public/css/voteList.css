@@ -13,7 +13,7 @@ article{
 
     padding: 0 20px;
 
-    width: 400px;
+    width: 500px;
     height: 50px;
 
     border: 6px solid white;
@@ -116,5 +116,8 @@ article{
     #popular{
         flex-direction: column;
         height: 150vh;
+    }
+    .list_date{
+        width: 30%;
     }
 } 

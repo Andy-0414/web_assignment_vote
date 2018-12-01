@@ -78,25 +78,29 @@ app.get('/register', (req, res) => {
     res.render('register')
 })
 app.get('/create', (req, res) => {
-    res.render('newVote')
+    if(req.isLogin)
+        res.render('newVote')
+    else
+        res.redirect('/')
 })
 app.get('/join', (req, res) => {
     Post.find((err, data) => {
-        data = data.filter(x => x.isOpen & (req.query.search ? (x.title.indexOf(req.query.search) != -1) : 1))
+        var unSort = data.filter(x => x.isOpen & (req.query.search ? (x.title.indexOf(req.query.search) != -1) : 1))
         res.render('voteList', {
-            list: data,
+            list: unSort,
             popular: data.sort((a,b)=>{
-                return (b.viewCount - a.viewCount)
+                return (b.join.length - a.join.length)
             }).slice(0,5)
         })
     })
 })
 app.get('/close', (req, res) => {
     Post.find((err, data) => {
-        data = data.filter(x => !x.isOpen & (req.query.search ? (x.title.indexOf(req.query.search) != -1) : 1))
+        var unSort = data.filter(x => !x.isOpen & (req.query.search ? (x.title.indexOf(req.query.search) != -1) : 1))
+        var filter = unSort
         res.render('oldVoteList', {
-            list: data,
-            popular: data.sort((a, b) => {
+            list: unSort,
+            popular: filter.sort((a, b) => {
                 return (b.viewCount - a.viewCount)
             }).slice(0, 5)
         })

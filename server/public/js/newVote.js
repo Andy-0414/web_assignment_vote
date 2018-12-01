@@ -11,8 +11,6 @@ function createVoteList(){
     td1.classList = "mdl-data-table__cell--non-numeric"
     var td2 = document.createElement('td')
     td2.classList = "mdl-data-table__cell--non-numeric"
-    var td3 = document.createElement('td')
-    td3.classList = "mdl-data-table__cell--non-numeric"
 
     var input = document.createElement('div')
     input.classList = "mdl-textfield mdl-js-textfield voteList_text"
@@ -25,14 +23,6 @@ function createVoteList(){
     input_label.innerHTML = "내용을 입력하세요"
     input.appendChild(input_text)
     input.appendChild(input_label)
-    
-    var a_button = document.createElement('button')
-    a_button.type = "button"
-    a_button.classList = "mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored"
-    var icon = document.createElement('i')
-    icon.innerHTML = "image"
-    icon.classList = "addImage material-icons"
-    a_button.appendChild(icon)
 
     var c_button = document.createElement('button')
     c_button.type = "button"
@@ -47,14 +37,11 @@ function createVoteList(){
 
     componentHandler.upgradeElement(input);
     td1.appendChild(input)
-    componentHandler.upgradeElement(a_button);
-    td2.appendChild(a_button)
     componentHandler.upgradeElement(c_button);
-    td3.appendChild(c_button)
+    td2.appendChild(c_button)
     
     tr.appendChild(td1)
     tr.appendChild(td2)
-    tr.appendChild(td3)
 
     return tr;
 }
