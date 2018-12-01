@@ -53,6 +53,9 @@ article{
     box-sizing: border-box;
     overflow: hidden;
 }
+.popular_box:hover{
+    background-color: rgb(220, 227, 207);
+}
 .popular_title{
     width: 100%;
     text-align: justify;
@@ -80,7 +83,7 @@ article{
 .list{
     height: 45px;
 
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #DDDDDD;
 
     font-size: 1.2em;
 }

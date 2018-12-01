@@ -1,3 +1,10 @@
+*{
+    transition: 0.1s;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
 body{
     margin: 0px;
 }
@@ -298,5 +305,9 @@ body{
     }
     #topInfo>h1{
         width: 100vw;
+    }
+
+    #leftInfo{
+        display:none;
     }
 } 
