@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./MDL/material.min.css">
+    <script src="./MDL/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="css/thema.css">
+    <link rel="stylesheet" href="css/newVote.css">
+
+    <title>Vote</title>
+</head>
+
+<body>
+    <form method="POST" action="/post/create" id="app">
+        <nav id="topInfo" class="colorLime1">
+            <h1>투표 작성</h1>
+        </nav>
+        <section id="content">
+            <article>
+                <h2>투표제목</h2>
+                <div class="inputLeftmargin mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" name="title">
+                    <label class="mdl-textfield__label">제목을 입력하세요</label>
+                </div>
+            </article>
+            <article>
+                <h2>투표항목</h2>
+                <table class="mdl-data-table mdl-js-data-table voteList">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">내용</th>
+                            <th class="mdl-data-table__cell--non-numeric voteList_sm">이미지</th>
+                            <th class="mdl-data-table__cell--non-numeric voteList_sm">삭제</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contentList">
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <div class="mdl-textfield mdl-js-textfield voteList_text">
+                                    <input class="mdl-textfield__input" type="text" name="list">
+                                    <label class="mdl-textfield__label">내용을 입력하세요</label>
+                                </div>
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <button type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                                    <i class="addImage material-icons">image</i>
+                                </button>
+                            </td>
+                            <td class="mdl-data-table__cell--non-numeric">
+                                <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">
+                                    <i class="material-icons deleteList">clear</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center voteList">
+                    <button type="button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" id="addList">
+                        <i class="material-icons">add</i>항목추가
+                    </button>
+                </div>
+            </article>
+            <article>
+                <h2>투표 설정</h2>
+                <label class="mdl-checkbox mdl-js-checkbox inputLeftmargin">
+                    <input type="checkbox" class="mdl-checkbox__input" name="isMulti">
+                    <span class="mdl-checkbox__label">복수 선택</span>
+                </label>
+            </article>
+            <article>
+                <h2>투표 본문</h2>
+                <div class="w-9 inputLeftmargin mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" name="subtitle">
+                    <label class="mdl-textfield__label">글 제목을 입력하세요</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield contentTextBox">
+                    <textarea class="mdl-textfield__input" type="text" rows="5" name="content"></textarea>
+                    <label class="mdl-textfield__label">내용</label>
+                </div>
+            </article>
+            <article>
+                <button id="sendServer" type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent">
+                    투표 시작하기
+                </button>
+            </article>
+        </section>
+    </form>
+    <script src="./js/newVote.js"></script>
+</body>
+
+</html>

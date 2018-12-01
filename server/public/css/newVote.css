@@ -1,0 +1,50 @@
+#content>article{
+    width: 100%;
+    padding: 30px;
+    margin: 1% 0;
+    
+    height: fit-content;
+
+    box-shadow: 0px 0px 10px 1px #EEEEEE;
+    box-sizing: border-box;
+}
+#content>article>h2{
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+}
+.voteList{
+    width: 95%;
+
+    margin: 0 auto;
+}
+.voteList_text{
+    width: 100%;
+}
+.voteList_sm{
+    width: 1px;
+}
+.addImage{
+    color: white;
+}
+.deleteList{
+    color: #FF8888;
+    width: auto;
+}
+.inputLeftmargin{
+    margin: 1% 0;
+    margin-left: 3%;
+}
+
+.contentTextBox{
+    width: 90%;
+    margin: 0 3%;
+}
+#sendServer{
+    width: 100%;
+
+    font-size: 20px;
+    background-color: rgb(161, 221, 49);
+    color: white;
+    border-radius: 5px;
+}

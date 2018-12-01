@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./MDL/material.min.css">
+    <script src="./MDL/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="css/thema.css">
+    <link rel="stylesheet" href="css/newVote.css">
+
+    <title>Vote</title>
+</head>
+
+<body>
+    <form action="/auth/register" method="POST" id="app">
+        <nav id="topInfo" class="colorLime3">
+            <h1>투표 작성</h1>
+        </nav>
+        <section id="content">
+            <article>
+                <h2>유저 이름</h2>
+                <div class="inputLeftmargin mdl-textfield mdl-js-textfield">
+                    <input required class="mdl-textfield__input" type="text" name="username">
+                    <label class="mdl-textfield__label">Nickname</label>
+                </div>
+            </article>
+            <article>
+                <h2>이메일</h2>
+                <div class="inputLeftmargin mdl-textfield mdl-js-textfield">
+                    <input required class="mdl-textfield__input" type="email" name="email">
+                    <label class="mdl-textfield__label">Email</label>
+                </div>
+            </article>
+            <article>
+                <h2>비밀번호</h2>
+                <div class="inputLeftmargin mdl-textfield mdl-js-textfield">
+                    <input required class="mdl-textfield__input" type="password" name="password">
+                    <label class="mdl-textfield__label">Password</label>
+                </div>
+            </article>
+            <article>
+                <button id="sendServer" type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent">
+                    투표 시작하기
+                </button>
+            </article>
+        </section>
+    </form>
+</body>
+
+</html>

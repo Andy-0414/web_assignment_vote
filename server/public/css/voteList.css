@@ -1,0 +1,120 @@
+article{
+    width: 100%;
+    padding: 30px;
+    margin: 1% 0;
+}
+#searchBar::before{
+    content: "asdf";
+}
+#searchBar{
+    position: absolute;
+    left: calc(20vw + 350px);
+    bottom: 10px;
+
+    padding: 0 20px;
+
+    width: 400px;
+    height: 50px;
+
+    border: 6px solid white;
+    border-radius: 100px;
+    background: none;
+
+    font-size: 1.5em;
+    color: white;
+
+    box-sizing: border-box;
+    outline: none;
+}
+::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+#popular{
+    display: flex;
+
+    padding: 0;
+
+    width: 100%;
+    height: 250px;
+    box-sizing: border-box;
+}
+.popular_box{
+    position: relative;
+    display: inline-block;
+    flex: 1;
+
+    margin: 20px;
+    padding: 0;
+
+    height: 100%;
+
+    background-color: rgb(225, 220, 212);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.popular_box:hover{
+    background-color: rgb(220, 227, 207);
+}
+.popular_title{
+    width: 100%;
+    text-align: justify;
+    position: absolute;
+    left: 7%;
+    bottom: 15%;
+}
+.popular_tag{
+    position: absolute;
+    left: 7%;
+    bottom: 5%;
+}
+
+
+#voteList{
+    width: 95%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+.header{
+    height: 50px;
+
+    font-size: 1.5em;
+}
+.list{
+    height: 45px;
+
+    border-bottom: 1px solid #DDDDDD;
+
+    font-size: 1.2em;
+}
+.list_tltie{
+    padding: 0 0 0 20px;
+}
+.list_count::before{
+    content: "["
+}
+.list_count::after{
+    content: "]"
+}
+.list_count{
+    color: rgb(46, 204, 113);
+}
+.list_name,.list_date{
+    text-align: center;
+}
+
+@media (max-width: 1280px) {
+    #searchBar{
+        left: 300px;                                            
+    }
+} 
+
+@media (max-width: 720px) {
+    #searchBar{
+        display: none;
+    }
+    #popular{
+        flex-direction: column;
+        height: 150vh;
+    }
+} 

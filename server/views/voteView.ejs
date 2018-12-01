@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="../MDL/material.min.css">
+    <script src="../MDL/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="../css/thema.css">
+    <link rel="stylesheet" href="../css/voteView.css">
+
+    <title>Vote</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav id="topInfo" class="colorLime2">
+            <div id="leftList">
+                <h1 id="voteTitle"><%= post.title %></h1>
+                <div class="info"><%= post.date %></div>
+            </div>
+            <div id="rightList">
+                <div id="btnList">
+                    <form method="POST" action=<%=`/post/${post.id}/close`%>>
+                    <button class="btn">마감</button>
+                    </form>
+                    <form method="POST" action=<%=`/post/${post.id}/delete`%>>
+                    <button class="btn">삭제</button>
+                    </form>
+                </div>
+                <div class="info">조회 <%= post.viewCount %> | 참여 0 | 댓글 <%= post.comment.length %></div>
+            </div>
+        </nav>
+        <section id="content">
+            <article class="voteContent">
+                <%= post.content %>
+            </article>
+            <article>
+                <form method="POST" action=<%=`/post/${post.id}/answer`%>>
+                <table id="voteList">
+                    <thead>
+                        <tr class="header">
+                            <th class="w-8" style="text-align: left; padding-left: 30px;"><%= post.subTitle %></th>
+                            <% if(post.isOpen){ %>
+                            <th></th>
+                            <% } %>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                        <% for(i in [...post.list]){ %>
+                        <tr class="list">
+                            <td class="listDesc"><%= post.list[i]%> <span style="color:grey;">[<%= answer[i] %>]</span></td>
+                            <% if(post.isOpen){ %>
+                            <td class="center">
+                            <% if(!post.isMulti){ %>
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect">
+                                    <input type="radio" class="mdl-radio__button" name="answer" value=<%=i%>>
+                                </label>
+                            <% }else{ %>
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                    <input type="checkbox" class="mdl-checkbox__input" name="answer" value=<%=i%>>
+                                </label>
+                                <% } %>
+                            </td>
+                            <% } %>
+                        </tr>
+                        
+                    <% } %>
+                    <% if(post.isOpen){ %>
+                        <tr class="list">
+                            <td class="listDesc"></td>
+                            <td class="center">
+                                <button id="sendServer" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">
+                                    투표하기
+                                </button>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+                </form>
+            </article>
+            <article>
+                <form method="POST" action=<%=`/post/${post.id}/comment`%>>
+                    <div class="w-8 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" name="content">
+                        <label class="mdl-textfield__label">댓글</label>
+                    </div>
+                    <button id="commentAdd" class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">
+                        등록
+                    </button>
+                </form>
+            </article>
+            <article>
+                <table id="commentList">
+                    <thead>
+                        <tr class="commentHeader">
+                            <td class="w-1"></td>
+                            <td class="w-8"></td>
+                            <td class="w-1"></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% for(i in [...post.comment]){ %>
+                        <tr class="list">
+                            <td><%= post.comment[i].username %></td>
+                            <td><%= post.comment[i].content %></td>
+                            <td><%= post.comment[i].date %></td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </div>
+</body>
+
+</html>

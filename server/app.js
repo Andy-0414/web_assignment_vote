@@ -7,6 +7,11 @@ const passport = require('passport') // passport 로그인 구현을 위해 사�
 const session = require('express-session'); // Session
 const cookieParser = require('cookie-parser')
 
+const db = require('./modules/mongoConnect').getDB()
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
 app.use(session({
     secret: 'Andy0414',
     resave: false,
@@ -21,9 +26,28 @@ app.use(express.urlencoded({ extended: false })); // body parser
 app.use(cookieParser()); // 쿠키파서
 app.use(express.static('public')); // 정적 파일
 
+const Post = require('./schema/posts')
+const User = require('./schema/userData')
+
 passport.use(new LocalStrategy(
     (username, password, done) => {
-        //구현해야함
+        User.findOne({ email: username }, (err, data) => {
+            if (err) {
+                console.log(`[Login] ${err}`)
+                return done(err)
+            }
+            if (!data) {
+                console.log(`[Login] 이메일이 일치하지 않음 : ${username}`)
+                return done(null, false, { message: '이메일이 일치하지 않습니다.', succ: false });
+            }
+            if (data.password != password) {
+                console.log(`[Login] 비밀번호가 일치하지 않음 : ${username}`)
+                return done(null, false, { message: '비밀번호가 일치하지 않습니다.', succ: false });
+            }
+            console.log(`[Login] 로그인 성공 : ${username}`)
+            delete data[password]
+            return done(null, data);
+        })
     }
 )); // 로그인 조건 - local
 
@@ -45,11 +69,44 @@ app.use((req, res, next) => { // 로그인 유무 확인 미들웨어
     next()
 })
 
-app.post('/',(req,res)=>{
-    console.log(req.body)
-    res.send(req.body)
+app.get('/',(req,res)=>{
+    res.render('index',{
+        user : req.user
+    })
+})
+app.get('/register', (req, res) => {
+    res.render('register')
+})
+app.get('/create', (req, res) => {
+    res.render('newVote')
+})
+app.get('/join', (req, res) => {
+    Post.find((err, data) => {
+        data = data.filter(x => x.isOpen & (req.query.search ? (x.title.indexOf(req.query.search) != -1) : 1))
+        res.render('voteList', {
+            list: data,
+            popular: data.sort((a,b)=>{
+                return (b.viewCount - a.viewCount)
+            }).slice(0,5)
+        })
+    })
+})
+app.get('/close', (req, res) => {
+    Post.find((err, data) => {
+        data = data.filter(x => !x.isOpen & (req.query.search ? (x.title.indexOf(req.query.search) != -1) : 1))
+        res.render('oldVoteList', {
+            list: data,
+            popular: data.sort((a, b) => {
+                return (b.viewCount - a.viewCount)
+            }).slice(0, 5)
+        })
+    })
 })
 
 const authRouter = require('./routers/auth'); // 라우터 로딩
 
 app.use('/auth', authRouter); // 라우터 연결
+
+const postRouter = require('./routers/post'); // 라우터 로딩
+
+app.use('/post', postRouter); // 라우터 연결

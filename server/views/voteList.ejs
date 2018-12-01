@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="./MDL/material.min.css">
+    <script src="./MDL/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="css/thema.css">
+    <link rel="stylesheet" href="css/voteList.css">
+
+    <title>Vote</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav id="topInfo" class="colorLime2">
+            <h1>투표 게시판</h1>
+            <form action="/join" id="sr">
+            <input type="search" name="search" id="searchBar" placeholder="검색어를 입력하세요" onchange="document.getElementById('sr').submit();">
+            </form>
+        </nav>
+        <nav id="leftInfo">
+            <div class="activeBar z-index-up">
+                <div class="aFont">진</div>
+                <div class="aFont">행</div>
+                <div class="aFont">중</div>
+            </div>
+            <a href="/close" class="restBar">
+                <div class="aFont">마</div>
+                <div class="aFont">감</div>
+            </a>
+        </nav>
+        <section id="content">
+            <article id="popular">
+            <% for(i in [...popular]){ %>
+                <a href=<%=`/post/${popular[i].id}`%>  class="popular_box">
+                    <h3 class="popular_title"><%= popular[i].title %></h3>
+                    <p class="popular_tag">#태그</p>
+                </a>
+            <% } %>
+            </article>
+            <article>
+                <table id="voteList">
+                    <thead>
+                        <tr class="header list">
+                            <th class="w-7">제목</th>
+                            <th>작성자</th>
+                            <th>작성일시</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% for(i in list.reverse()){ %>
+                        <tr class="list">
+                            <td class="list_tltie"><a href=<%=`/post/${list[i].id}`%> ><%= list[i].title %> <span class="list_count"><%= list[i].viewCount %></span></a></td>
+                            <td class="list_name"><%= list[i].ownerName %></td>
+                            <td class="list_date"><%= list[i].date %></td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </div>
+    <script src="./js/voteList.js"></script>
+</body>
+
+</html>

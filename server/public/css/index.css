@@ -1,0 +1,144 @@
+#app{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    height: 100vh;
+}
+.voteBox{
+    margin: 10px;
+
+    width: 250px;
+    height: 400px;
+
+    padding: 10px;
+    box-sizing: border-box
+}
+.voteBox_img{
+    position: relative
+    ;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+}
+.voteBox_text{
+    font-size: 1.8em;
+    line-height: 1.8em;
+
+    color: rgb(123, 144, 83);
+
+    padding: 10px 15px 15px 15px;
+    box-sizing: border-box;
+}
+.img_Text{
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+
+    font-size: 3em;
+    font-weight: 500;
+    color: rgb(123, 144, 83);
+}
+
+#logo{
+    height: 25%;
+}
+#loginBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 600px;
+    height: 600px;
+}
+#loginBtn{
+    margin-top: 40px;
+
+    width: 120px;
+    height: 50px;
+
+    font-size: 20px;
+    background-color: #afd946;
+    color: white;
+    border-radius: 5px;
+}
+#loginBtn:hover{
+    background-color: #8cae38;
+}
+#joinVote{
+    display: inline-block;
+    transition: 0.5s;
+    background-color: #f9ffcf;
+}
+#joinVote:hover{
+    background-color: #e0e5ba;
+}
+#createVote{
+    display: inline-block;
+    transition: 0.5s;
+    background-color: #f0ffd0;
+}
+#createVote:hover{
+    background-color: #d8e5bb;
+}
+#loginForm{
+    transition: 1s;
+    
+    position: absolute;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 360px;
+
+    width: 60%;
+    height: 150px;
+
+    border-radius: 10px;
+
+    background-color: #e7f4c7;
+
+    opacity: 0;
+
+    z-index: -1;
+}
+#loginForm_input{
+    width: 70%;
+    margin: 10px;
+}
+#loginForm_submit{
+    width: 30%;
+    height: 135px;
+
+    margin: 10px;
+
+    background-color: #afd946;
+    color: rgba(0, 0,0, 0.2); 
+
+    border-radius: 10px 0 0 10px;
+}
+#loginForm_submit:hover{
+    background-color: #8cae38;
+}
+#loginForm label{
+    color: grey;
+}
+#profile{
+    opacity: 0.5;
+    margin: 20px auto;
+}
+#username{
+    text-align: center;
+    color: rgb(127, 127, 127);
+    font-size: 1.6em;
+}
+#myInfo{
+    margin-top: 30px;
+    width: 300px;
+    height: 100px;
+    box-shadow: 0px 0px 10px 1px grey;
+}

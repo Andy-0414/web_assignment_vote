@@ -1,0 +1,102 @@
+article{
+    width: 100%;
+    padding: 30px;
+    margin: 1% 0;
+}
+
+#leftList{
+    position: absolute;
+    left: 20%;
+    
+    text-align: left;
+}
+#rightList{
+    position: absolute;
+    right: 20%;
+
+    text-align: right;
+}
+#voteTitle{
+    margin: 0;
+    padding: 0;
+    
+    font-size: 3em;
+    font-weight: 700;
+    color: white;
+}
+.info{
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+#btnList{
+    
+}
+.btn{
+    width: 70px;
+    height: 35px;
+
+    background: white;
+    color: black !important;
+    font-size: 1.2em;
+
+    border: none;
+    border-radius: 5px;
+    background: white;
+
+    box-sizing: border-box;
+}
+
+.voteContent{
+    font-size: 1.2em;
+}
+#voteList{
+    width: 95%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid rgb(204, 204, 204);
+}
+.header{
+    height: 100px;
+    background-color: #EEEEEE;
+
+    font-size: 2em;
+}
+.list{
+    height: 50px;
+    border-bottom: 1px solid rgb(204, 204, 204);
+
+    font-size: 1.2em;
+}
+.listDesc{
+    padding-left: 40px;
+}
+#sendServer{
+    height: 60px;
+    color: rgb(143, 158, 112);
+    background-color: rgb(240, 255, 208);
+    font-size: 1.2em;
+}
+
+#commentAdd{
+    background-color: rgb(189, 211, 63);
+    color: white;
+    font-size: 1.2em
+}
+
+#commentList{
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+.commentHeader{
+    height: none;
+}
+
+@media (max-width: 1280px) {
+    #leftList{
+        left: 0;
+    }
+    #rightList{
+        right: 0;
+    }
+} 
