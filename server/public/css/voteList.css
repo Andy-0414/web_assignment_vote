@@ -41,7 +41,9 @@ article{
 }
 .popular_box{
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     flex: 1;
 
     margin: 20px;
@@ -57,16 +59,22 @@ article{
     background-color: rgb(220, 227, 207);
 }
 .popular_title{
-    width: 100%;
+    width: 90%;
     position: absolute;
     font-size: 2.5em;
     left: 7%;
     bottom: 15%;
+    word-break: break-all;
 }
 .popular_tag{
+    width: 90%;
     position: absolute;
     left: 7%;
     bottom: 5%;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 
@@ -102,7 +110,10 @@ article{
 .list_name,.list_date{
     text-align: center;
 }
-
+.backImg{
+    position: absolute;
+    opacity: 0.2;
+}
 @media (max-width: 1280px) {
     #searchBar{
         left: 300px;                                            

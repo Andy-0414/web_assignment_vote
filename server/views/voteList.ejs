@@ -39,8 +39,11 @@
             <article id="popular">
             <% for(i in [...popular]){ %>
                 <a href=<%=`/post/${popular[i].id}`%>  class="popular_box">
+                    <% if(popular[i].img){ %>
+                        <img src=<%= popular[i].img %> class="backImg" height="100%">
+                    <% } %>
                     <h3 class="popular_title"><%= popular[i].title %></h3>
-                    <p class="popular_tag">#태그</p>
+                    <p class="popular_tag"><%= popular[i].content %></p>
                 </a>
             <% } %>
             </article>

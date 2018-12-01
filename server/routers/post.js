@@ -18,35 +18,40 @@ const upload = multer({
 
 router.get('/:id', (req, res) => {
     Post.findOne({ id: req.params.id }, (err, data) => {
-        data.viewCount++;
-        //data.join { email:"", answer:[1,3]}
-        var myJoin;
-        var isOwner = false
-        if (req.isLogin) {
-            myJoin = data.join.find(x => x.email == req.user.email)
-            isOwner = (req.user.email == data.owner)
+        if(data){
+            data.viewCount++;
+            //data.join { email:"", answer:[1,3]}
+            var myJoin;
+            var isOwner = false
+            if (req.isLogin) {
+                myJoin = data.join.find(x => x.email == req.user.email)
+                isOwner = (req.user.email == data.owner)
+            }
+            var answer = [];
+            var all = 0;
+            data.list.forEach((x, index) => {
+                answer[index] = 0;
+            })
+            data.join.forEach((x, index) => {
+                x.answer.forEach(y => {
+                    answer[y]++
+                    all++;
+                })
+            })
+            data.save(err => {
+                res.render('voteView', {
+                    post: data,
+                    user: req.user,
+                    answer: answer,
+                    all: all,
+                    isJoin: (myJoin ? myJoin.answer : []),
+                    isOwner: isOwner
+                })
+            })
         }
-        var answer = [];
-        var all = 0;
-        data.list.forEach((x, index) => {
-            answer[index] = 0;
-        })
-        data.join.forEach((x, index) => {
-            x.answer.forEach(y => {
-                answer[y]++
-                all++;
-            })
-        })
-        data.save(err => {
-            res.render('voteView', {
-                post: data,
-                user: req.user,
-                answer: answer,
-                all: all,
-                isJoin: (myJoin ? myJoin.answer : []),
-                isOwner: isOwner
-            })
-        })
+        else{
+            res.redirect('/')
+        }
     })
 })
 
