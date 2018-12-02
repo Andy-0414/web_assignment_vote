@@ -12,6 +12,7 @@ Mongo DB 설치
 서버 실행
 -------------
  cd server
+ 
  node app.js
 
 접속 확인
